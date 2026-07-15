@@ -1,0 +1,8 @@
+[{
+  "relation": ["delegate_permission/common.handle_all_urls"],
+  "target": {
+    "namespace": "android_app",
+    "package_name": "io.github.jillthestingray.vaporfm",
+    "sha256_cert_fingerprints": ["81:D7:44:A0:F0:6A:6F:44:BE:12:FB:18:60:47:77:98:8D:C6:D0:12:00:2D:41:62:71:65:C9:07:78:74:83:B4"]
+  }
+}]
