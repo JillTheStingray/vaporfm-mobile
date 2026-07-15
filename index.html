@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#0d0918" />
+  <title>VaporFM</title>
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="icon" href="icons/icon-192.png" />
+  <link rel="apple-touch-icon" href="icons/icon-192.png" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- animated vaporwave scene -->
+  <div id="scene">
+    <div class="sky"></div>
+    <div class="sun"></div>
+    <div class="grid-floor"></div>
+    <div class="haze"></div>
+  </div>
+  <div id="crt" class="hidden"></div>
+
+  <!-- in-page now-playing banner -->
+  <div id="banner" class="hidden">
+    <img id="bnArt" alt="" />
+    <div>
+      <div class="bn-label">NOW PLAYING</div>
+      <div id="bnTitle"></div>
+      <div id="bnArtist"></div>
+    </div>
+  </div>
+
+  <header id="topbar">
+    <div class="brand">
+      <span class="brand-mark">▲</span>
+      <span class="brand-name">VAPORFM</span>
+      <span class="brand-jp">モバイル</span>
+    </div>
+    <span class="live-chip" id="liveChip">● LIVE</span>
+    <button id="crtToggle" class="pill">CRT</button>
+  </header>
+
+  <main id="main">
+    <!-- player view -->
+    <section id="playerView">
+      <div id="stage" class="glass">
+        <video id="video" playsinline></video>
+        <div id="radioStage" class="hidden">
+          <img id="radioArt" alt="" />
+          <canvas id="visualizer"></canvas>
+        </div>
+        <div id="tapHint" class="hidden">タップ ▶ tap to play</div>
+        <select id="quality" class="pill hidden"></select>
+      </div>
+
+      <div id="nowPanel" class="glass">
+        <img id="npArt" alt="" />
+        <div id="npText">
+          <div class="np-label">NOW PLAYING</div>
+          <div id="npTitle">…</div>
+          <div id="npArtist"></div>
+          <div id="npBarWrap"><div id="npBar"></div></div>
+          <div id="npTime"></div>
+        </div>
+        <div id="npActions">
+          <button id="favBtn" class="heart">♥</button>
+          <button id="ytBtn" class="pill">YT</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- library view -->
+    <section id="libraryView" class="hidden">
+      <div class="glass lib-head">
+        <div class="lib-tabs">
+          <button class="tab active" data-tab="history">History</button>
+          <button class="tab" data-tab="favorites">Favorites</button>
+        </div>
+        <input id="libSearch" type="search" placeholder="search artist / title…" />
+        <div class="lib-actions">
+          <button id="exportJson" class="pill">Export JSON</button>
+          <button id="exportCsv" class="pill">Export CSV</button>
+        </div>
+      </div>
+      <div id="libList" class="glass"></div>
+    </section>
+  </main>
+
+  <!-- bottom tab bar -->
+  <nav id="tabbar">
+    <button class="tab-item active" data-station="tv"><span>📺</span>TV</button>
+    <button class="tab-item" data-station="vapor"><span>📻</span>Vapor</button>
+    <button class="tab-item" data-station="chiptune"><span>🕹️</span>Chip</button>
+    <button class="tab-item" data-station="keygen"><span>💾</span>Keygen</button>
+    <button class="tab-item" data-view="library"><span>♥</span>Library</button>
+  </nav>
+
+  <audio id="radio" crossorigin="anonymous" preload="none"></audio>
+  <script src="hls.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
